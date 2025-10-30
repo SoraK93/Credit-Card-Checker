@@ -85,9 +85,26 @@ function idInvalidCardCompanies(cards) {
   }
 
   return invalidCompanyCard;
-};
+}
+
+function getCardFromUser(input) {
+  const convertToArray = [];
+
+  for (let chr of input) {
+    let convertStrToNum = Number(chr);
+    if (!isNaN(convertStrToNum)) {
+      convertToArray.push(convertStrToNum);
+    } else {
+      throw new Error(`${chr} is not a number.`);
+    }
+  }
+
+  return convertToArray;
+}
 
 let getInvalidCards = findInvalidCards(batch);
 // console.log(getInvalidCards);
 let invalidCardCompany = idInvalidCardCompanies(getInvalidCards);
 console.log(invalidCardCompany);
+
+console.log(getCardFromUser("1538574318546"));
